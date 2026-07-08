@@ -45,6 +45,41 @@
 	--shadow-md: 1rem 1rem 2rem 0 rgba(40, 40, 40, 0.75);
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+}
+
+.grid{
+	display: grid;
+	gap: var(--space-2xs);
+}
+
+.card{
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	color: var(--color-text);
+	border: 1px solid black;
+	box-shadow: var(--shadow-sm);
+	border-radius: var(--radius-sm);
+	gap: var(--space-2xs);
+	padding: var(--space-2xs);
+}
+
 /* Flash message styles */
 .alert {
 	padding: var(--space-xs);

@@ -1,0 +1,59 @@
+h1{
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+h2{
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+h1, h2, h3 {
+    color: var(--color-heading);
+}
+
+main {
+    padding: var(--space-xs);
+    display: grid;
+    gap: var(--space-sm);
+    justify-content: stretch;
+
+    & li {
+        grid-template-columns: 100px auto auto;
+    }
+}
+
+
+
+ul, ol{
+    padding-left: var(--space-md);
+}
+
+/* forms */
+
+form {
+    width: min(100%, 38rem);
+    justify-self: center;
+}
+
+fieldset{
+    grid-template-columns: 1fr;
+
+    &.card{
+        grid-template-columns: 1fr;
+    }
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    
+    input[type="text"], input[type="email"], input[type="password"], input[type="datetime-local"], select, option, textarea{
+        border-radius: var(--radius-xsm);
+        padding: var(--space-2xs);
+        font-size: 1rem;
+    }
+}
+
+/* footer */
+footer{
+    justify-content: center;
+}

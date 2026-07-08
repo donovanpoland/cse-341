@@ -4,9 +4,9 @@
 	<body>
 		<%- include('./partials/header') %>
 
-		<main>
-			<h1>h1 heading</h1>
-			<section>
+		<main class="grid">
+			<h1><%= title %></h1>
+			<section class="flex_colum card">
 				<h2>Contacts API</h2>
 				<p>Test contacts API calls</p>
 				<ul>
@@ -18,23 +18,21 @@
 							>View All Contacts JSON</a
 						>
 					</li>
-					<li>
-						<p>Contact list (limit 10)</p>
-						<ol>
-							<% contacts.forEach(contact => { %>
-							<li>
-								<a
-									href="/contact/<%=contact._id %>"
-									target="_blank"
-									rel="noopener noreferrer"
-									><%= contact.firstName %>
-									<%= contact.lastName %>
-								</a>
-							</li>
-							<% }); %>
-						</ol>
-					</li>
 				</ul>
+				<h3>Contact list (limit 10)</h3>
+				<ol>
+					<% contacts.forEach(contact => { %>
+					<li>
+						<a
+							href="/contact/<%=contact._id %>"
+							target="_blank"
+							rel="noopener noreferrer"
+							><%= contact.firstName %>
+							<%= contact.lastName %>
+						</a>
+					</li>
+					<% }); %>
+				</ol>
 			</section>
 		</main>
 

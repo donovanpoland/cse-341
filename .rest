@@ -1,2 +1,25 @@
-GET 
-GET 
+// Development
+// home page
+GET http://127.0.0.1:3456
+// 404 error testing
+GET http://127.0.0.1:3456/does-not-exist
+// get all contacts
+GET http://127.0.0.1:3456/contatcs
+// get specific contact
+GET http://127.0.0.1:3456/contact/6a4e83a92d088de8c72a3e66
+// check against a unreal id
+GET http://127.0.0.1:3456/contact/1234567
+
+
+
+// Production
+// home page
+GET https://contacts-api-g59t.onrender.com/
+// 404 error testing
+GET https://contacts-api-g59t.onrender.com/does-not-exist
+// get all contacts
+GET https://contacts-api-g59t.onrender.com/contacts
+// get specific contact
+GET https://contacts-api-g59t.onrender.com/contact/6a4e83a92d088de8c72a3e66
+// check against a unreal id
+GET https://contacts-api-g59t.onrender.com//contact/1234567

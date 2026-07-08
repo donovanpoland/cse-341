@@ -9,6 +9,7 @@
 	"scripts": {
 		"dev": "NODE_ENV=development nodemon",
 		"start": "NODE_ENV=production node --env-file-if-exists=.env server.js",
+		"production": "NODE_ENV=production node server.js",
 		"format:all": "prettier --plugin=prettier-plugin-ejs --write '**/*.{js,css,html,ejs,json}'",
 		"format:file": "prettier --plugin=prettier-plugin-ejs --write",
 		"format:check": "prettier --plugin=prettier-plugin-ejs --check \"**/*.{js,css,html,ejs,json}\"",
