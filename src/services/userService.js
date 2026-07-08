@@ -4,6 +4,8 @@ import { User } from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import { toTitleCase, capitalizeFirstLetter } from "../utils/formatter.util.js";
 
+const saltLevel = 12;
+
 const findUserByEmail = async (email) => {
 	return await User.findOne({ email: email.toLowerCase().trim() }).populate(
 		"role",
@@ -38,7 +40,7 @@ const createUser = async (firstName, lastName, email, password) => {
 	const normalizedEmail = email.toLowerCase().trim();
 
 	// Hash the password before storing it
-	const salt = await bcrypt.genSalt(10);
+	const salt = await bcrypt.genSalt(saltLevel);
 	const passwordHash = await bcrypt.hash(password, salt);
 
 	//create default role for first time user
