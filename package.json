@@ -1,0 +1,57 @@
+{
+	"name": "cse-341",
+	"version": "1.0.0",
+	"description": "class project for cse341",
+	"license": "ISC",
+	"author": "Donovan Poland",
+	"type": "module",
+	"main": "server.js",
+	"scripts": {
+		"dev": "NODE_ENV=development nodemon",
+		"start": "NODE_ENV=production node --env-file-if-exists=.env server.js",
+		"format:all": "prettier --plugin=prettier-plugin-ejs --write '**/*.{js,css,html,ejs,json}'",
+		"format:file": "prettier --plugin=prettier-plugin-ejs --write",
+		"format:check": "prettier --plugin=prettier-plugin-ejs --check \"**/*.{js,css,html,ejs,json}\"",
+		"new_session": "node --input-type=module -e \"import { randomBytes } from 'node:crypto'; console.log(randomBytes(48).toString('base64url'));\"",
+		"seed:roles": "node --env-file-if-exists=.env src/seeds/seedRoles.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"keywords": [
+		"nodemon",
+		"eslint",
+		"node",
+		"prettier",
+		"express",
+		"mongodb",
+		"mongoose",
+		"connect-mongo",
+		"bcrypt"
+	],
+	"devDependencies": {
+		"eslint": "^10.6.0",
+		"nodemon": "^3.1.14",
+		"prettier": "^3.9.4",
+		"prettier-eslint": "^17.1.1",
+		"prettier-plugin-ejs": "^1.0.3"
+	},
+	"engines": {
+		"node": "24.x"
+	},
+	"dependencies": {
+		"bcrypt": "^6.0.0",
+		"connect-mongo": "^6.0.0",
+		"ejs": "^6.0.1",
+		"express": "^5.2.1",
+		"express-rate-limit": "^8.5.2",
+		"express-session": "^1.19.0",
+		"express-validator": "^7.3.2",
+		"mongodb": "^7.4.0",
+		"mongoose": "^9.7.3"
+	},
+	"allowScripts": {
+		"bcrypt@6.0.0": true
+	}
+}

@@ -1,0 +1,80 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<main>
+	<h1><%= title %></h1>
+	<form action="/register-user" method="POST" class="grid">
+		<fieldset class="grid card">
+			<label for="firstName"
+				>First Name
+				<input
+					type="text"
+					name="firstName"
+					id="firstName"
+					maxlength="100"
+					autocomplete="given-name"
+					required
+					value="<%= firstName ?? '' %>"
+				/>
+			</label>
+
+			<label for="lastName"
+				>Last Name
+				<input
+					type="text"
+					name="lastName"
+					id="lastName"
+					maxlength="100"
+					autocomplete="family-name"
+					required
+					value="<%= lastName ?? '' %>"
+				/>
+			</label>
+
+			<label for="email"
+				>Email
+				<input
+					type="email"
+					id="email"
+					name="email"
+					autocomplete="email"
+					maxlength="255"
+					required
+					value="<%= email ?? '' %>"
+				/>
+			</label>
+
+			<label for="password">
+				<span>Password <span id="caps-lock"> </span></span>
+				<span class="flex-row">
+					<input
+						type="password"
+						id="password"
+						name="password"
+						minlength="8"
+						maxlength="72"
+						required
+					/>
+				</span>
+			</label>
+
+			<label for="confirmPassword">
+				<span>Confirm Password</span>
+				<span class="flex-row">
+					<input
+						type="password"
+						id="confirmPassword"
+						name="confirmPassword"
+						minlength="8"
+						maxlength="72"
+						required
+					/>
+				</span>
+			</label>
+			<button class="btn" type="button" id="toggle-password">
+				Show password
+			</button>
+			<button class="btn" type="submit">Register</button>
+		</fieldset>
+	</form>
+</main>
+<%- include('../partials/footer') %>
