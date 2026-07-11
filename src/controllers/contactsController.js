@@ -13,14 +13,14 @@ const getAllContactsJson = async (req, res) => {
 
 		// Contact.date comes back as yyyy-mm-ddT00:00:00.000Z
 		// Format to only display yyyy-mm-dd
-		const formattedContacts = contacts.map((contact) => ({
-			...contact,
+		const formattedContacts = contacts.map((contacts) => ({
+			...contacts,
 			// Remove everything after "T"
-			birthday: contact.birthday?.toISOString().split("T")[0],
+			birthday: contacts.birthday?.toISOString().split("T")[0],
 		}));
 
 		//contact found status ok
-		return res.status(200).json(formattedContact);
+		return res.status(200).json(formattedContacts);
 	} catch (error) {
 		return res.status(500).json({
 			message: "Failed to fetch contacts.",
