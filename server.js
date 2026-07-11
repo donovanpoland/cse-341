@@ -32,10 +32,15 @@ const onListen = () => {
 	// location is http string with port
 	// else location is only port number
 	const location = HOST ? `http://${HOST}:${PORT}` : `port ${PORT}`;
+
 	//log environment and display hosting location
 	if (isDevelopment) {
 		console.log(`Development mode\nServer listening on ${location}`);
-	} else console.log(`Production mode\nServer listening on ${location}`);
+	}
+
+	if (isProduction) {
+		console.log(`Production mode\nServer listening on ${location}`);
+	}
 };
 
 // Check port and host errors

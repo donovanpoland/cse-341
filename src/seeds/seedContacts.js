@@ -8,19 +8,29 @@ const contacts = [
 		firstName: "Donovan",
 		lastName: "Poland",
 		email: "donovan@example.com",
-		phoneNumber: 5555555555,
+		favoriteColor: "red",
+		birthday: new Date("1991-09-26"),
 	},
 	{
 		firstName: "Hunter",
 		lastName: "Poe",
 		email: "teacher@example.com",
-		phoneNumber: 1111111111,
+		favoriteColor: "green",
+		birthday: new Date("1980-05-12"),
 	},
 	{
 		firstName: "BYU-I",
 		lastName: "Grader",
 		email: "grader@example.com",
-		phoneNumber: 2222222222,
+		favoriteColor: "blue",
+		birthday: new Date("2000-01-01"),
+	},
+	{
+		firstName: "SoloSeed",
+		lastName: "Test",
+		email: "seedtest@example.com",
+		favoriteColor: "purple",
+		birthday: new Date("2005-01-01"),
 	},
 ];
 

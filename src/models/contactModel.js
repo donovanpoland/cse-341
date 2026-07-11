@@ -30,14 +30,15 @@ const ContactSchema = new mongoose.Schema({
 		maxLength: 255,
 		match: [/^\S+@\S+\.\S+$/, "Please provide a valid email address"],
 	},
-	phoneNumber: {
+	favoriteColor: {
 		type: String,
 		required: true,
 		trim: true,
-		match: [
-			/^\+?[0-9\s\-()]{7,20}$/,
-			"Please provide a valid phone number",
-		],
+	},
+	birthday: {
+		type: Date,
+		required: true,
+		// mongoose validates dates with the Date type
 	},
 });
 

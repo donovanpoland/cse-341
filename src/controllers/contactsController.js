@@ -4,7 +4,23 @@ const getAllContactsJson = async (req, res) => {
 	try {
 		const contacts = await Contact.find().lean();
 
-		return res.status(200).json(contacts);
+		// contacts not found
+		if (!contacts) {
+			return res.status(404).json({
+				message: "No contacts found.",
+			});
+		}
+
+		// Contact.date comes back as yyyy-mm-ddT00:00:00.000Z
+		// Format to only display yyyy-mm-dd
+		const formattedContacts = contacts.map((contact) => ({
+			...contact,
+			// Remove everything after "T"
+			birthday: contact.birthday?.toISOString().split("T")[0],
+		}));
+
+		//contact found status ok
+		return res.status(200).json(formattedContact);
 	} catch (error) {
 		return res.status(500).json({
 			message: "Failed to fetch contacts.",
@@ -18,13 +34,22 @@ const getContactByIdJson = async (req, res) => {
 		const { id } = req.params;
 		const contactById = await Contact.findById(id).lean();
 
+		// no contact found
 		if (!contactById) {
 			return res.status(404).json({
 				message: `No contact found for id "${id}".`,
 			});
 		}
 
-		return res.status(200).json(contactById);
+		// Contact.date comes back as yyyy-mm-ddT00:00:00.000Z
+		// Format to only display yyyy-mm-dd
+		const formattedContact = {
+			...contactById,
+			// Remove everything after "T"
+			birthday: contactById.birthday?.toISOString().split("T")[0],
+		};
+
+		return res.status(200).json(formattedContact);
 	} catch (error) {
 		if (error.name === "CastError") {
 			return res.status(400).json({
