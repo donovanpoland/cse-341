@@ -1,25 +1,40 @@
+
+
+@devUrl = http://127.0.0.1:3456
+@id1 = 6a51d548b6feaa40c76be586
+@id2 = 6a51d548b6feaa40c76be587
+@fakeId = 6a51d548b6feaa40c76be511
+
 // Development
-// home page
-GET http://127.0.0.1:3456
-// 404 error testing
-GET http://127.0.0.1:3456/does-not-exist
-// get all contacts
-GET http://127.0.0.1:3456/contatcs
-// get specific contact
-GET http://127.0.0.1:3456/contact/6a519019b6feaa40c76bd38b
-// check against a unreal id
-GET http://127.0.0.1:3456/contact/1234567
+### home page view
+GET {{devUrl}}
 
+### 404 error testing
+GET {{devUrl}}/does-not-exist
 
+### get all contacts
+GET {{devUrl}}/contacts
+
+### get specific contact
+GET {{devUrl}}/contact/{{id1}}
+
+### check against a fake id
+GET {{devUrl}}/contact/{{fakeId}}
+
+@prodUrl = https://contacts-api-g59t.onrender.com
 
 // Production
-// home page
-GET https://contacts-api-g59t.onrender.com/
-// 404 error testing
-GET https://contacts-api-g59t.onrender.com/does-not-exist
-// get all contacts
-GET https://contacts-api-g59t.onrender.com/contacts
-// get specific contact
-GET https://contacts-api-g59t.onrender.com/contact/6a519019b6feaa40c76bd38b
-// check against a unreal id
-GET https://contacts-api-g59t.onrender.com//contact/1234567
+### home page view
+GET {{prodUrl}}
+
+### 404 error testing
+GET {{prodUrl}}/does-not-exist
+
+### get all contacts
+GET {{prodUrl}}/contacts
+
+### get specific contact
+GET {{prodUrl}}/contact/{{id2}}
+
+### check against a fake id
+GET {{prodUrl}}/contact/{{fakeId}}

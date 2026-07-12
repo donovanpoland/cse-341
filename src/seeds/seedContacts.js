@@ -22,16 +22,16 @@ const contacts = [
 		firstName: "BYU-I",
 		lastName: "Grader",
 		email: "grader@example.com",
-		favoriteColor: "blue",
+		favoriteColor: "yellow",
 		birthday: new Date("2000-01-01"),
 	},
-	{
-		firstName: "SoloSeed",
-		lastName: "Test",
-		email: "seedtest@example.com",
-		favoriteColor: "purple",
-		birthday: new Date("2005-01-01"),
-	},
+	// {
+	// 	firstName: "liveTest",
+	// 	lastName: "LiveInsert",
+	// 	email: "liveSeed@example.com",
+	// 	favoriteColor: "cyan",
+	// 	birthday: new Date("2077-01-01"),
+	// },
 ];
 
 const seedContacts = async () => {
