@@ -1,6 +1,7 @@
 
 
 @devUrl = http://127.0.0.1:3456
+@prodUrl = https://contacts-api-g59t.onrender.com
 @id1 = 6a51d548b6feaa40c76be586
 @id2 = 6a51d548b6feaa40c76be587
 @fakeId = 6a51d548b6feaa40c76be511
@@ -21,7 +22,7 @@ GET {{devUrl}}/contact/{{id1}}
 ### check against a fake id
 GET {{devUrl}}/contact/{{fakeId}}
 
-@prodUrl = https://contacts-api-g59t.onrender.com
+
 
 // Production
 ### home page view
