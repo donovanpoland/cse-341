@@ -43,7 +43,7 @@ const createUser = async (firstName, lastName, email, password) => {
 	const salt = await bcrypt.genSalt(saltLevel);
 	const passwordHash = await bcrypt.hash(password, salt);
 
-	//create default role for first time user
+	// Set default role for first time user
 	const defaultRole = await Role.findOne({ name: "user" });
 	if (!defaultRole) {
 		throw new Error("Role not found");
