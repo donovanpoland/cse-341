@@ -4,7 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 //routes
-import router from "./src/routes.js";
+import router from "./src/routes/routes.js";
 
 //sessions
 import sessionMiddleware from "./src/config/session.js";

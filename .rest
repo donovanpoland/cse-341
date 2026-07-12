@@ -4,6 +4,8 @@
 @prodUrl = https://contacts-api-g59t.onrender.com
 @id1 = 6a51d548b6feaa40c76be586
 @id2 = 6a51d548b6feaa40c76be587
+@id3 = 6a51d549b6feaa40c76be588
+@createdId = 6a54140137334209efd0a0fa
 @fakeId = 6a51d548b6feaa40c76be511
 
 // Development
@@ -17,10 +19,37 @@ GET {{devUrl}}/does-not-exist
 GET {{devUrl}}/contacts
 
 ### get specific contact
-GET {{devUrl}}/contact/{{id1}}
+GET {{devUrl}}/contacts/{{id1}}
 
 ### check against a fake id
-GET {{devUrl}}/contact/{{fakeId}}
+GET {{devUrl}}/contacts/{{fakeId}}
+
+### Create contact
+POST {{devUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "jane@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1999-01-15"
+}
+
+### Update contact
+PUT {{devUrl}}/contacts/{{createdId}}
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1999-01-15"
+}
+
+### Delete contact
+DELETE {{devUrl}}/contacts/{{createdId}}
 
 
 
@@ -35,7 +64,34 @@ GET {{prodUrl}}/does-not-exist
 GET {{prodUrl}}/contacts
 
 ### get specific contact
-GET {{prodUrl}}/contact/{{id2}}
+GET {{prodUrl}}/contacts/{{id2}}
 
 ### check against a fake id
-GET {{prodUrl}}/contact/{{fakeId}}
+GET {{prodUrl}}/contacts/{{fakeId}}
+
+### Create contact
+POST {{prodUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "jane@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1999-01-15"
+}
+
+### Update contact
+PUT {{prodUrl}}/contacts/{{createdId}}
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1999-01-15"
+}
+
+### Delete contact
+DELETE {{prodUrl}}/contacts/{{createdId}}
