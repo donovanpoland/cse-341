@@ -9,9 +9,11 @@ const router = Router();
 
 
 //Home
+// #swagger.ignore = true
 router.get("/", index);
 
 //Authentication
+// #swagger.ignore = true
 router.use(usersRouter);
 
 // Contacts

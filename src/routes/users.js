@@ -31,6 +31,7 @@ import {
 const router = Router();
 
 //Register
+// #swagger.ignore = true
 router.get("/register-user", userRegistrationForm).post(
     "/register-user",
     // limit number of registrations
@@ -48,6 +49,7 @@ router.get("/register-user", userRegistrationForm).post(
 );
 
 //Login
+// #swagger.ignore = true
 router.get("/login-user", loginForm).post(
     "/login-user",
     // limit number of logins
@@ -61,6 +63,7 @@ router.get("/login-user", loginForm).post(
 );
 
 //Logout
+// #swagger.ignore = true
 router.post("/logout-user", processLogout);
 
 export default router;

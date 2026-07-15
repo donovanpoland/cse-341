@@ -3,6 +3,11 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 
+//swagger
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "./swagger.json" with { type: "json" };
+
+
 //routes
 import router from "./src/routes/routes.js";
 
@@ -64,6 +69,7 @@ app.use((req, res, next) => {
 });
 
 // Routes - Use the imported router to handle routes
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(router);
 
 // errors middleware

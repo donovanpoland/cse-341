@@ -8,6 +8,7 @@ const isDevelopment = config.isDevelopment;
 
 // render user registration form with applicable data
 const userRegistrationForm = async (req, res) => {
+	// #swagger.ignore = true
 	// set form data if saved in session
 	const formData = req.session.formData ?? {};
 	// Remove old session data
@@ -25,6 +26,7 @@ const userRegistrationForm = async (req, res) => {
 
 // save user to database and redirect
 const processUserRegistration = async (req, res) => {
+	// #swagger.ignore = true
 	// initialize body info
 	const { firstName, lastName, email, password } = req.body;
 
@@ -53,6 +55,7 @@ const processUserRegistration = async (req, res) => {
 
 // render login form with applicable data
 const loginForm = (req, res) => {
+	// #swagger.ignore = true
 	// reset form data if saved in session
 	const formData = req.session.formData ?? {};
 	delete req.session.formData;
@@ -68,6 +71,7 @@ const loginForm = (req, res) => {
 
 // authenticate, login user and redirect
 const processLogin = async (req, res, next) => {
+	// #swagger.ignore = true
 	// initialize body info
 	const { email, password } = req.body;
 
@@ -106,6 +110,7 @@ const processLogin = async (req, res, next) => {
 
 // log out user, delete session data and redirect
 const processLogout = async (req, res) => {
+	// #swagger.ignore = true
 	// get the user session and destroy it on logout
 	req.session.destroy((err) => {
 		if (err) return res.redirect(303, "/dashboard");
@@ -120,6 +125,7 @@ const processLogout = async (req, res) => {
 
 // require login for specific features to be accessed
 const requireLogin = (req, res, next) => {
+	// #swagger.ignore = true
 	// check for user session
 	if (!req.session || !req.session.user) {
 		// send message if not logged in

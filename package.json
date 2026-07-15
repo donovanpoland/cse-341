@@ -11,10 +11,10 @@
 		"start": "NODE_ENV=production node --env-file-if-exists=.env server.js",
 		"production": "NODE_ENV=production node server.js",
 		"format:all": "prettier --plugin=prettier-plugin-ejs --write '**/*.{js,css,html,ejs,json}'",
-		"format:file": "prettier --plugin=prettier-plugin-ejs --write",
 		"format:check": "prettier --plugin=prettier-plugin-ejs --check \"**/*.{js,css,html,ejs,json}\"",
 		"new_session": "node --input-type=module -e \"import { randomBytes } from 'node:crypto'; console.log(randomBytes(48).toString('base64url'));\"",
-		"seed:roles": "node --env-file-if-exists=.env src/seeds/seedRoles.js"
+		"seed:roles": "node --env-file-if-exists=.env src/seeds/seedRoles.js",
+		"swagger": "node ./swagger.js"
 	},
 	"repository": {
 		"type": "git",
@@ -36,7 +36,8 @@
 		"nodemon": "^3.1.14",
 		"prettier": "^3.9.4",
 		"prettier-eslint": "^17.1.1",
-		"prettier-plugin-ejs": "^1.0.3"
+		"prettier-plugin-ejs": "^1.0.3",
+		"swagger-autogen": "^2.23.7"
 	},
 	"engines": {
 		"node": "24.x"
@@ -50,7 +51,8 @@
 		"express-session": "^1.19.0",
 		"express-validator": "^7.3.2",
 		"mongodb": "^7.4.0",
-		"mongoose": "^9.7.3"
+		"mongoose": "^9.7.3",
+		"swagger-ui-express": "^5.0.1"
 	},
 	"allowScripts": {
 		"bcrypt@6.0.0": true
