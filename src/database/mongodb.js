@@ -1,5 +1,5 @@
 import { config } from "../../config.js";
-import mongodb from "mongodb";
+
 import mongoose from "mongoose";
 
 const DB_URL = config.database.url;

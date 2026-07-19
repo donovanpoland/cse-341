@@ -22,4 +22,19 @@ const toTitleCase = (value) => {
 		.join(" ");
 };
 
-export { capitalizeFirstLetter, toTitleCase };
+const formatContactForApi = (contact) => {
+	// Contact.date comes back as yyyy-mm-ddT00:00:00.000Z
+	// Format to only display yyyy-mm-dd
+	const contactObject =
+		typeof contact.toObject === "function" ? contact.toObject() : contact;
+	// Remove document version from listed data
+	const { __v, ...contactData } = contactObject;
+
+	return {
+		...contactData,
+		// Remove everything after "T"
+		birthday: contactData.birthday?.toISOString().split("T")[0],
+	};
+};
+
+export { capitalizeFirstLetter, toTitleCase, formatContactForApi };

@@ -1,11 +1,9 @@
-
-
 @devUrl = http://127.0.0.1:3456
 @prodUrl = https://contacts-api-g59t.onrender.com
 @id1 = 6a51d548b6feaa40c76be586
 @id2 = 6a51d548b6feaa40c76be587
 @id3 = 6a51d549b6feaa40c76be588
-@createdId = 6a54140137334209efd0a0fa
+@createdId = 6a5bf0d2ddf77dfa179c9248
 @fakeId = 6a51d548b6feaa40c76be511
 
 // Development
@@ -21,22 +19,28 @@ GET {{devUrl}}/contacts
 ### get specific contact
 GET {{devUrl}}/contacts/{{id1}}
 
-### check against a fake id
+### ID validation test ( does not meet format )
+GET {{devUrl}}/contacts/does-not-exist
+
+### check against a valid ID format but bad ID
 GET {{devUrl}}/contacts/{{fakeId}}
+
+### API path 404 error handling
+GET {{devUrl}}/contacts/{{id1}}/extra-stuff
 
 ### Create contact
 POST {{devUrl}}/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "email": "jane@example.com",
-  "favoriteColor": "Blue",
-  "birthday": "1999-01-15"
+  "firstName": "valid",
+  "lastName": "name",
+  "email": "creationtest@example.com",
+  "favoriteColor": "red number 40",
+  "birthday": "1999-02-15"
 }
 
-### Update contact
+### Update contact - (update createdId before test)
 PUT {{devUrl}}/contacts/{{createdId}}
 Content-Type: application/json
 
@@ -54,17 +58,23 @@ DELETE {{devUrl}}/contacts/{{createdId}}
 
 
 // Production
-### home page view
+### home page view - html response
 GET {{prodUrl}}
 
-### 404 error testing
+### 404 error testing - html response
 GET {{prodUrl}}/does-not-exist
 
-### get all contacts
+### get all contacts - json response
 GET {{prodUrl}}/contacts
 
 ### get specific contact
 GET {{prodUrl}}/contacts/{{id2}}
+
+### ID validation test ( does not meet format )
+GET {{prodUrl}}/contacts/does-not-exist
+
+### API path 404 error handling
+GET {{prodUrl}}contacts/{{id1}}/extra-stuff
 
 ### check against a fake id
 GET {{prodUrl}}/contacts/{{fakeId}}

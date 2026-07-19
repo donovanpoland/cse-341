@@ -1,7 +1,7 @@
 {
-	"name": "cse-341",
+	"name": "Contacts API",
 	"version": "1.0.0",
-	"description": "class project for cse341",
+	"description": "REST API using CRUD mechanics for an API to keep track of contacts",
 	"license": "ISC",
 	"author": "Donovan Poland",
 	"type": "module",

@@ -21,11 +21,15 @@ import flash from "./src/middleware/flashMiddleware.js";
 import { config } from "./config.js";
 
 //errors
-import { notFound, errorHandler } from "./src/middleware/errorMiddleware.js";
+import { notFound, errorHandler, } from "./src/middleware/errorMiddleware.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
+const isDevelopment = config.isDevelopment;
+
+// headers
+app.disable("x-powered-by");
 
 // Allow Express to receive and process common POST data
 app.use(express.urlencoded({ extended: true }));
@@ -44,7 +48,7 @@ app.use(sessionMiddleware);
 
 // Set app locals
 app.locals.siteName = config.name;
-app.locals.isDevelopment = config.isDevelopment;
+app.locals.isDevelopment = isDevelopment;
 // set is logged in status as a local variable
 app.use((req, res, next) => {
 	res.locals.isLoggedIn = Boolean(req.session?.user);
@@ -56,8 +60,7 @@ app.use((req, res, next) => {
 // set flash middleware
 app.use(flash);
 //  Log all incoming requests
-app.use((req, res, next) => {
-	const isDevelopment = config.isDevelopment;
+app.use((req, res, next) => {	
 	if (isDevelopment) {
 		res.on("finish", () => {
 			console.log(`Method: ${req.method}\nURL: ${req.url}\nStatus: ${res.statusCode}
@@ -72,7 +75,7 @@ app.use((req, res, next) => {
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(router);
 
-// errors middleware
+// page/view errors middleware
 app.use(notFound);
 app.use(errorHandler);
 
