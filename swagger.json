@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "CSE 341 Contacts API",
-    "description": "Express API for user authentication and contact management."
+    "description": "REST API for CURD management of contacts."
   },
   "host": "contacts-api-g59t.onrender.com",
   "basePath": "/",

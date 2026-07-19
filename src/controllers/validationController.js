@@ -139,7 +139,7 @@ const contactsValidation = [
 		.withMessage("birthday must be a valid calendar date")
 ];// end contacts validation
 
-// export users
+
 export { 
 	// page/view validation
 	userValidation, loginValidation,

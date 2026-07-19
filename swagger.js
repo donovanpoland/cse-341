@@ -6,7 +6,7 @@ const document = {
 		version: "1.0.0",
 		title: "CSE 341 Contacts API",
 		description:
-			"Express API for user authentication and contact management.",
+			"REST API for CURD management of contacts.",
 	},
     // Update based on environment for testing
     // Production: contacts-api-g59t.onrender.com || Development: 127.0.0.1:3456
