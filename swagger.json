@@ -47,6 +47,38 @@
           "Contacts"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Contact created successfully",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "CreateFirstName"
+                },
+                "lastName": {
+                  "example": "CreateLastName"
+                },
+                "email": {
+                  "example": "email@example.com"
+                },
+                "favoriteColor": {
+                  "example": "blue"
+                },
+                "birthday": {
+                  "example": "2024-12-28"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Contact created successfully"
@@ -63,16 +95,6 @@
           "500": {
             "description": "Internal server error"
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/Contact"
-              }
-            }
-          }
         }
       }
     },
@@ -88,7 +110,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "MongoDB contact id"
+            "description": "Contact retrieved successfully"
           }
         ],
         "responses": {
@@ -119,8 +141,31 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "MongoDB contact id"
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "updateFirstName"
+                },
+                "lastName": {
+                  "example": "UpdateLastName"
+                },
+                "email": {
+                  "example": "email@example.com"
+                },
+                "favoriteColor": {
+                  "example": "red"
+                },
+                "birthday": {
+                  "example": "2025-01-01"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -142,16 +187,6 @@
           "500": {
             "description": "Internal server error"
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/Contact"
-              }
-            }
-          }
         }
       },
       "delete": {
@@ -165,7 +200,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "MongoDB contact id"
+            "description": "Contact deleted successfully"
           }
         ],
         "responses": {

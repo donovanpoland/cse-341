@@ -38,7 +38,7 @@ router.get("/",
 // get contact
 router.get("/:id",
     // #swagger.tags = ['Contacts']
-    // #swagger.parameters['id'] = { in: 'path', description: 'MongoDB contact id', required: true, type: 'string' }
+    // #swagger.parameters['id']
     // #swagger.responses[200] = { description: 'Contact retrieved successfully' }
     // #swagger.responses[400] = { description: 'Invalid contact id format' }
     // #swagger.responses[404] = { description: 'Contact not found' }
@@ -57,7 +57,7 @@ router.get("/:id",
 // Create contact
 router.post("/",
     // #swagger.tags = ['Contacts']
-    // #swagger.requestBody = { required: true, content: { "application/json": { schema: { $ref: '#/definitions/Contact' } } } }
+    // #swagger.parameters['body']
     // #swagger.responses[201] = { description: 'Contact created successfully' }
     // #swagger.responses[400] = { description: 'Request validation failed' }
     // #swagger.responses[409] = { description: 'Conflict' }
@@ -76,8 +76,8 @@ router.post("/",
 // Update Contact
 router.put("/:id",
     // #swagger.tags = ['Contacts']
-    // #swagger.parameters['id'] = { in: 'path', description: 'MongoDB contact id', required: true, type: 'string' }
-    // #swagger.requestBody = { required: true, content: { "application/json": { schema: { $ref: '#/definitions/Contact' } } } }
+    // #swagger.parameters['id']
+    // #swagger.parameters['body']
     // #swagger.responses[200] = { description: 'Contact updated successfully' }
     // #swagger.responses[400] = { description: 'Request validation failed' }
     // #swagger.responses[404] = { description: 'Contact not found' }
@@ -99,7 +99,7 @@ router.put("/:id",
 // Delete contact
 router.delete("/:id",
     // #swagger.tags = ['Contacts']
-    // #swagger.parameters['id'] = { in: 'path', description: 'MongoDB contact id', required: true, type: 'string' }
+    // #swagger.parameters['id']
     // #swagger.responses[200] = { description: 'Contact deleted successfully' }
     // #swagger.responses[400] = { description: 'Invalid contact id format' }
     // #swagger.responses[404] = { description: 'Contact not found' }
