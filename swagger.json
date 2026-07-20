@@ -26,151 +26,163 @@
   "paths": {
     "/contacts/": {
       "get": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Contacts retrieved successfully"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal server error"
           }
         }
       },
       "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
-                  "example": "any"
-                }
-              }
-            }
-          }
+        "tags": [
+          "Contacts"
         ],
+        "description": "",
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Contact created successfully"
+          },
+          "400": {
+            "description": "Request validation failed"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal server error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
           }
         }
       }
     },
     "/contacts/{id}": {
       "get": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "MongoDB contact id"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Contact retrieved successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid contact id format"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Contact not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal server error"
           }
         }
       },
       "put": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
-                  "example": "any"
-                }
-              }
-            }
+            "type": "string",
+            "description": "MongoDB contact id"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Contact updated successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Request validation failed"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Contact not found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal server error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
           }
         }
       },
       "delete": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "MongoDB contact id"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Contact deleted successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid contact id format"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Contact not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal server error"
           }
         }
       }

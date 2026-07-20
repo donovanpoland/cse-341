@@ -1,8 +1,8 @@
 import { Router } from "express";
 
 import { index } from "../controllers/indexController.js";
-import usersRouter from "./users.js";
-import contactsRouter from "./contacts.js";
+import usersRouter from "./usersRoute.js";
+import contactsRouter from "./contactsRoute.js";
 
 // init Express Router
 const router = Router();
@@ -19,6 +19,5 @@ router.use(usersRouter);
 // Contacts
 router.use("/contacts", contactsRouter);
 
-
-
+// import to app.js
 export default router;
