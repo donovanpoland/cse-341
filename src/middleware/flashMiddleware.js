@@ -21,54 +21,63 @@ const flashMiddleware = (req, res, next) => {
 	 * - Called with 0 args: retrieves and clears all messages
 	 */
 	req.flash = function (type, message) {
-		// Initialize flash storage if it doesn't exist
-		if (!req.session.flash) {
-			req.session.flash = {
-				success: [],
-				error: [],
-				warning: [],
-				info: [],
-			};
-		}
-
-		// SETTING: Two arguments means we're storing a new message
+		// SETTING: only create session flash storage when actually writing
 		if (type && message) {
+			if (!req.session.flash) {
+				req.session.flash = {
+					success: [],
+					error: [],
+					warning: [],
+					info: [],
+				};
+			}
+	
 			// Ensure this message type's array exists
 			if (!req.session.flash[type]) {
 				req.session.flash[type] = [];
 			}
+	
 			// Add the message to the appropriate type array
 			req.session.flash[type].push(message);
 			return;
 		}
-
+	
+		const emptyMessages = {
+			success: [],
+			error: [],
+			warning: [],
+			info: [],
+		};
+	
+		const flashStore = req.session.flash ?? emptyMessages;
+	
 		// GETTING ONE TYPE: One argument means retrieve messages of that type
 		if (type && !message) {
-			const messages = req.session.flash[type] || [];
+			const messages = flashStore[type] || [];
+	
 			// Clear this type's messages after retrieving
-			req.session.flash[type] = [];
+			if (req.session.flash) {
+				req.session.flash[type] = [];
+			}
+	
 			return messages;
 		}
-
-		// GETTING ALL: No arguments means retrieve all message types
-		const allMessages = req.session.flash || {
-			success: [],
-			error: [],
-			warning: [],
-			info: [],
+		
+		// GETTING ALL: read without creating session data
+		const allMessages = {
+			success: flashStore.success || [],
+			error: flashStore.error || [],
+			warning: flashStore.warning || [],
+			info: flashStore.info || [],
 		};
-
-		// Clear all flash messages after retrieving
-		req.session.flash = {
-			success: [],
-			error: [],
-			warning: [],
-			info: [],
-		};
-
+	
+		if (req.session.flash) {
+			delete req.session.flash;
+		}
+	
 		return allMessages;
 	};
-
+	// move on to next middleware/route
 	next();
 };
 
