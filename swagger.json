@@ -29,7 +29,7 @@
         "tags": [
           "Contacts"
         ],
-        "description": "Get all Contacts",
+        "description": "Get all Contacts with GET method",
         "responses": {
           "200": {
             "description": "Contacts retrieved successfully"
@@ -46,17 +46,12 @@
         "tags": [
           "Contacts"
         ],
-        "description": "Create new contact",
+        "description": "Create new Contact with POST method",
         "parameters": [
           {
             "name": "body",
-            "description": "Contact created successfully",
-            "in": "query",
-            "type": "string"
-          },
-          {
-            "name": "body",
             "in": "body",
+            "description": "Json containing firstName, lastName, email, favoriteColor, birthday obtained via res.body",
             "schema": {
               "type": "object",
               "properties": {
@@ -110,7 +105,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Contact retrieved successfully"
+            "description": "req.params of ID representing the Contact to be updated"
           }
         ],
         "responses": {
@@ -141,7 +136,8 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "req.params of an ID representing the Contact to be updated"
           },
           {
             "name": "body",
@@ -200,7 +196,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Contact deleted successfully"
+            "description": "req.params of an ID representing the Contact to be updated"
           }
         ],
         "responses": {
