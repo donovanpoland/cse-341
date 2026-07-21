@@ -29,7 +29,7 @@
         "tags": [
           "Contacts"
         ],
-        "description": "",
+        "description": "Get all Contacts",
         "responses": {
           "200": {
             "description": "Contacts retrieved successfully"
@@ -46,7 +46,7 @@
         "tags": [
           "Contacts"
         ],
-        "description": "",
+        "description": "Create new contact",
         "parameters": [
           {
             "name": "body",
@@ -103,7 +103,7 @@
         "tags": [
           "Contacts"
         ],
-        "description": "",
+        "description": "Get contact by ID",
         "parameters": [
           {
             "name": "id",
@@ -135,7 +135,7 @@
         "tags": [
           "Contacts"
         ],
-        "description": "",
+        "description": "Update Contact",
         "parameters": [
           {
             "name": "id",
@@ -193,7 +193,7 @@
         "tags": [
           "Contacts"
         ],
-        "description": "",
+        "description": "Delete contact",
         "parameters": [
           {
             "name": "id",

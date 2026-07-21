@@ -23,7 +23,7 @@ import { apiNotFound, apiErrorHandler } from "../middleware/errorMiddleware.js";
 const router = Router();
 
 
-// Get Contacts
+// Get all Contacts
 router.get("/",
     // #swagger.tags = ['Contacts']
     // #swagger.responses[200] = { description: 'Contacts retrieved successfully' }
@@ -35,7 +35,7 @@ router.get("/",
     // call controller
     getAllContactsJson);
 
-// get contact
+// get single Contact
 router.get("/:id",
     // #swagger.tags = ['Contacts']
     // #swagger.parameters['id']
